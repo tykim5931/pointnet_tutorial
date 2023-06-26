@@ -66,7 +66,7 @@ class PointNetFeat(nn.Module):
             self.stn3 = STNKd(k=3)
         if self.feature_transform:
             self.stn64 = STNKd(k=64)
-
+        # ssh change test
         # point-wise mlp
         # TODO : Implement point-wise mlp model based on PointNet Architecture.
 
