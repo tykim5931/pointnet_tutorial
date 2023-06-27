@@ -25,10 +25,13 @@ def step(points, pc_labels, class_labels, model):
     """
     
     # TODO : Implement step function for segmentation.
+    logits, feat_trans = model(points)
 
-    loss = None
-    logits = None
-    preds = None
+    loss_seg = F.cross_entropy(logits.transpose(2, 1), pc_labels)
+    loss_ortho = get_orthogonal_loss(feat_trans)
+    loss = loss_seg + loss_ortho
+    
+    preds = torch.argmax(logits, dim=1)
     return loss, logits, preds
 
 
@@ -39,6 +42,9 @@ def train_step(points, pc_labels, class_labels, model, optimizer, train_acc_metr
     train_batch_acc = train_acc_metric(preds, pc_labels)
 
     # TODO : Implement backpropagation using optimizer and loss
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
 
     return loss, train_batch_acc
 
@@ -60,7 +66,7 @@ def main(args):
     device = "cpu" if args.gpu == -1 else f"cuda:{args.gpu}"
 
     # TODO: Implement the model call
-    model : PointNetPartSeg()
+    model : PointNetPartSeg(num_counts=50, input_transform=True, feature_transform=True)
     model = model.to(device)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)

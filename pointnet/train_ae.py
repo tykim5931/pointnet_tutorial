@@ -23,8 +23,8 @@ def step(points, model):
     # TODO : Implement step function for AutoEncoder. 
     # Hint : Use chamferDist defined in above
     
-    preds = None
-    loss = None
+    preds = model(points)
+    loss = chamferDist(points, preds)
 
     return loss, preds
 
@@ -33,6 +33,9 @@ def train_step(points, model, optimizer):
     loss, preds = step(points, model)
 
     # TODO : Implement backpropagation using optimizer and loss
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
 
     return loss, preds
 
