@@ -24,6 +24,7 @@ def step(points, model):
     # Hint : Use chamferDist defined in above
     
     preds = model(points)
+    preds = preds.to(points.device)
     loss = chamferDist(points, preds, bidirectional=True)
 
     return loss, preds

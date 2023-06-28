@@ -97,15 +97,18 @@ class PointNetFeat(nn.Module):
             # matmul x * i_trans
             x = x.transpose(2,1)
             x = torch.bmm(x, i_trans) # B,N,3
-            x = x.transpose(2,1)
 
+        x = x.transpose(2,1)
         x = F.relu(self.conv1(x))    # 64
 
+        feat_trans = None
+        f_trans = None
         if self.feature_transform:
             f_trans = self.stn64(x)
             # matmul x * f_trans [n, 3, 3]
             x = torch.bmm(x.transpose(2,1), f_trans)
             x = x.transpose(2,1)
+            feat_trans = x
 
         x = F.relu(self.conv2(x))    # 128
         x = self.conv3(x)    # 1024
@@ -113,7 +116,7 @@ class PointNetFeat(nn.Module):
         # Max-pooling
         x = torch.max(x, 2, keepdim=True)[0]
         x = x.reshape(-1, 1024)
-        return x, f_trans
+        return x, f_trans, feat_trans
 
 
 class PointNetCls(nn.Module):
@@ -147,9 +150,9 @@ class PointNetCls(nn.Module):
             - ...
         """
         # TODO : Implement forward function.
-        global_feature, trans_feat = self.pointnet_feat(pointcloud)
+        global_feature, f_trans, feat_trans = self.pointnet_feat(pointcloud)
         x = self.fc(global_feature)
-        return F.log_softmax(x, dim=-1), trans_feat
+        return F.log_softmax(x, dim=-1), feat_trans
 
 
 class PointNetPartSeg(nn.Module):
@@ -178,16 +181,17 @@ class PointNetPartSeg(nn.Module):
         """
         # TODO: Implement forward function.
         B, N, _ = pointcloud.size()
-        global_feature, f_trans = self.pointnet_feat(pointcloud)
-        x = torch.cat([global_feature, f_trans], 1)
+        global_feature, f_trans, feat_trans = self.pointnet_feat(pointcloud)
+        global_feature = global_feature.view(-1, 1024, 1).repeat(1, 1, N)
+        x = torch.cat([global_feature, feat_trans], 1) # B, 1088, N
 
         x = F.relu(self.conv1(x))
         x = F.relu(self.conv2(x))
         x = F.relu(self.conv3(x))
-        x = self.conv4(x)
+        x = self.conv4(x) # 32,50,2048
+
+        x = F.log_softmax(x, dim = -1) # 32,50,2048
         
-        x = x.transpose(2,1).contiguous()
-        x = F.log_softmax(x.view(-1, self.num_counts), dim = -1)
         return x.view(B, self.num_counts, N), f_trans
         
 
@@ -197,19 +201,20 @@ class PointNetAutoEncoder(nn.Module):
         self.pointnet_feat = PointNetFeat()
 
         # Decoder is just a simple MLP that outputs N x 3 (x,y,z) coordinates.
-        # TODO : Implement decoder.
+        n1 = int(num_points/4)
+        n2 = int(num_points/2)
         self.fc = nn.Sequential(
-            nn.Linear(1024, num_points/4),
-            nn.BatchNorm1d(num_points/4),
+            nn.Linear(1024, n1),
+            nn.BatchNorm1d(n1),
             nn.ReLU(),
-            nn.Linear(num_points/4, num_points/2),
-            nn.BatchNorm1d(num_points/2),
+            nn.Linear(n1, n2),
+            nn.BatchNorm1d(n2),
             nn.ReLU(),
-            nn.Linear(num_points/2, num_points),
+            nn.Linear(n2, num_points),
             nn.Dropout(p=0.3),
             nn.BatchNorm1d(num_points),
             nn.ReLU(),
-            nn.Linear(1024, num_points*3),
+            nn.Linear(num_points, num_points*3),
         )
 
 
@@ -223,7 +228,7 @@ class PointNetAutoEncoder(nn.Module):
         """
         # TODO : Implement forward function.
         B, N, _ = pointcloud.shape
-        global_feature, _ = self.pointnet_feat(pointcloud)  # 1024, 
+        global_feature, _, _ = self.pointnet_feat(pointcloud)
         x = self.fc(global_feature)
         return x.view(B, N, 3)
 
