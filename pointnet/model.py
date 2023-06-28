@@ -30,6 +30,7 @@ class STNKd(nn.Module):
         """
         B = x.shape[0]
         device = x.device
+
         x = F.relu(self.conv1(x))
         x = F.relu(self.conv2(x))
         x = F.relu(self.conv3(x))
@@ -83,13 +84,19 @@ class PointNetFeat(nn.Module):
         """
 
         # TODO : Implement forward function.
-        B, N, _ = pointcloud.shape
-        x = pointcloud  # 3
+        x = pointcloud  # B,N,3
+        B, N, _ = x.shape
+        device = x.device
+
+        x = x.to('cuda')
 
         if self.input_transform:
-            i_trans = self.stn3(x)
+            x = x.transpose(2,1)
+            i_trans = self.stn3(x) # B,3,3
+
             # matmul x * i_trans
-            x = torch.bmm(x.transpose(2,1), i_trans)
+            x = x.transpose(2,1)
+            x = torch.bmm(x, i_trans) # B,N,3
             x = x.transpose(2,1)
 
         x = F.relu(self.conv1(x))    # 64
@@ -106,7 +113,6 @@ class PointNetFeat(nn.Module):
         # Max-pooling
         x = torch.max(x, 2, keepdim=True)[0]
         x = x.reshape(-1, 1024)
-
         return x, f_trans
 
 
@@ -141,10 +147,9 @@ class PointNetCls(nn.Module):
             - ...
         """
         # TODO : Implement forward function.
-        global_feature, feature_translation = self.pointnet_feat(pointcloud)
+        global_feature, trans_feat = self.pointnet_feat(pointcloud)
         x = self.fc(global_feature)
-
-        return F.log_softmax(x)
+        return F.log_softmax(x, dim=-1), trans_feat
 
 
 class PointNetPartSeg(nn.Module):

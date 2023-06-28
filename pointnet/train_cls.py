@@ -20,10 +20,15 @@ def step(points, labels, model):
     """
     
     # TODO : Implement step function for classification.
-    preds, feat_trans = model(points)
-    loss_cls = F.cross_entropy(preds, labels)
+    out, feat_trans = model(points)
+    out = out.to(labels.device)
+    feat_trans = feat_trans.to(labels.device)
+
+    loss_cls = F.cross_entropy(out, labels)
     loss_ortho = get_orthogonal_loss(feat_trans)
+
     loss = loss_cls + loss_ortho
+    preds = torch.max(out, dim=1).indices
 
     return loss, preds
 
