@@ -30,10 +30,10 @@ def step(points, pc_labels, class_labels, model):
     feat_trans = feat_trans.to(pc_labels.device)
 
     loss_seg = F.cross_entropy(logits, pc_labels)
-    loss_class = F.cross_entropy(logits.mean(dim=2), class_labels)
+    # loss_class = F.cross_entropy(logits.mean(dim=2), class_labels) 
     loss_ortho = get_orthogonal_loss(feat_trans)
     
-    loss = loss_seg + loss_ortho + loss_class
+    loss = loss_seg + loss_ortho
     
     preds = torch.max(logits, dim=1).indices
 

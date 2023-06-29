@@ -9,6 +9,6 @@
 #SBATCH --comment tensorflow
 #SBATCH --gres=gpu:1
 
-srun python train_ae.py --gpu 0 --epochs 30 --batch_size 32 --lr 1e-3 --save
+srun python train_ae.py --gpu 0 --epochs 100 --batch_size 32 --lr 1e-3 --save
 
 exit 0
