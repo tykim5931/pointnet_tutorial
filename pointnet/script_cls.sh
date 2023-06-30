@@ -9,6 +9,6 @@
 #SBATCH --comment tensorflow
 #SBATCH --gres=gpu:1
 
-srun python ~/projects/tutorial1/pointnet/train_cls.py --gpu 0 --epochs 100 --batch_size 32 --lr 1e-3 --save
+srun python train_cls.py --gpu 0 --epochs 100 --batch_size 32 --lr 1e-3 --save
 
 exit 0

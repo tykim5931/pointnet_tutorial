@@ -1,0 +1,95 @@
+==========================================
+SLURM_JOB_ID = 212676
+SLURM_NODELIST = gpu05
+==========================================
+train loss: 56.4185 | val loss: 45.0798
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=0-val_loss=45.0798.ckpt
+train loss: 33.5471 | val loss: 28.2345
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=1-val_loss=28.2345.ckpt
+train loss: 24.9201 | val loss: 22.6886
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=2-val_loss=22.6886.ckpt
+train loss: 22.1363 | val loss: 22.1452
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=3-val_loss=22.1452.ckpt
+train loss: 20.3197 | val loss: 19.3579
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=4-val_loss=19.3579.ckpt
+train loss: 19.4784 | val loss: 22.3484
+train loss: 18.8033 | val loss: 22.4430
+train loss: 18.2298 | val loss: 17.9340
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=7-val_loss=17.934.ckpt
+train loss: 17.2810 | val loss: 18.0406
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=8-val_loss=18.0406.ckpt
+train loss: 16.9328 | val loss: 15.2953
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=9-val_loss=15.2953.ckpt
+train loss: 16.7811 | val loss: 16.1424
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=10-val_loss=16.1424.ckpt
+train loss: 15.8938 | val loss: 15.7703
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=11-val_loss=15.7703.ckpt
+train loss: 15.9129 | val loss: 16.0536
+train loss: 15.4579 | val loss: 15.6252
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=13-val_loss=15.6252.ckpt
+train loss: 15.2714 | val loss: 14.3660
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=14-val_loss=14.366.ckpt
+train loss: 14.6045 | val loss: 14.4642
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=15-val_loss=14.4642.ckpt
+train loss: 14.3941 | val loss: 18.2852
+train loss: 14.3223 | val loss: 14.3289
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=17-val_loss=14.3289.ckpt
+train loss: 13.7561 | val loss: 13.8745
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=18-val_loss=13.8745.ckpt
+train loss: 13.3944 | val loss: 13.0136
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=19-val_loss=13.0136.ckpt
+train loss: 13.4615 | val loss: 12.8748
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=20-val_loss=12.8748.ckpt
+train loss: 13.0979 | val loss: 13.5233
+train loss: 12.8813 | val loss: 13.6317
+train loss: 12.7361 | val loss: 12.5450
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=23-val_loss=12.545.ckpt
+train loss: 12.4341 | val loss: 12.4378
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=24-val_loss=12.4378.ckpt
+train loss: 12.4569 | val loss: 12.5523
+train loss: 11.9906 | val loss: 11.4258
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=26-val_loss=11.4258.ckpt
+train loss: 12.2252 | val loss: 12.0494
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=27-val_loss=12.0494.ckpt
+train loss: 12.0532 | val loss: 13.8462
+train loss: 11.9048 | val loss: 12.4279
+train loss: 10.9146 | val loss: 10.6051
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=30-val_loss=10.6051.ckpt
+train loss: 10.5408 | val loss: 11.0717
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=31-val_loss=11.0717.ckpt
+train loss: 10.3747 | val loss: 10.7562
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=32-val_loss=10.7562.ckpt
+train loss: 10.3126 | val loss: 10.6407
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=33-val_loss=10.6407.ckpt
+train loss: 10.2674 | val loss: 11.4204
+train loss: 10.2050 | val loss: 11.0777
+train loss: 10.2305 | val loss: 11.4580
+train loss: 10.0148 | val loss: 10.6986
+train loss: 9.8879 | val loss: 10.4939
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=38-val_loss=10.4939.ckpt
+train loss: 9.9104 | val loss: 11.0142
+train loss: 9.7698 | val loss: 11.4545
+train loss: 9.7747 | val loss: 10.7982
+train loss: 9.6669 | val loss: 11.1389
+train loss: 9.7314 | val loss: 10.9188
+train loss: 9.6127 | val loss: 10.6725
+train loss: 9.4887 | val loss: 11.1988
+train loss: 9.4763 | val loss: 10.7345
+train loss: 9.3958 | val loss: 10.4653
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=47-val_loss=10.4653.ckpt
+train loss: 9.3110 | val loss: 10.9806
+train loss: 9.3012 | val loss: 10.3813
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=49-val_loss=10.3813.ckpt
+train loss: 9.2585 | val loss: 9.7652
+saving checkpoint to checkpoints/auto_encoding/06-30_01-15-24/epoch=50-val_loss=9.7652.ckpt
+train loss: 9.1396 | val loss: 10.5102
+train loss: 9.0736 | val loss: 11.6850
+train loss: 9.0142 | val loss: 10.4442
+train loss: 9.0129 | val loss: 10.7080
+train loss: 9.0209 | val loss: 10.4949
+train loss: 9.0353 | val loss: 10.4749
+train loss: 8.9233 | val loss: 10.4283
+train loss: 8.8778 | val loss: 11.1306
+train loss: 8.8095 | val loss: 10.3955
+loaded best ckpt from checkpoints/auto_encoding/06-30_01-15-24/epoch=50-val_loss=9.7652.ckpt
+test loss: 9.7652
