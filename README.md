@@ -68,9 +68,9 @@ The PointNet Auto-encoder comprises an encoder that inputs point clouds and prod
 Here, we use chamferdist (https://github.com/krrish94/chamferdist)
 
 On ModelNet40 test set:
-|        | Chamfer Dist. |
-| ------ | ------------- |
-| Ours   | 9.7652        |
+|               | Chamfer Dist. |
+| ------------- | ------------- |
+| Implemented   | 9.7652        |
 
 
 ## Reference
