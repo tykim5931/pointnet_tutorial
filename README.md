@@ -60,7 +60,7 @@ On ShapeNet Part test set:
 
 
 ## Task 3. Point Cloud Auto-Encoding
-**_success condition: You will get the perfect score if you achieve chamfer distance lower than 0.005 on the test set._**
+**_success condition: You will get the perfect score if you achieve chamfer distance lower than 0.005 * N = 10.24 on the test set._**
 ![image](Figure/ae.png)
 
 The PointNet Auto-encoder comprises an encoder that inputs point clouds and produces a 1024-sized global feature latent vector, and an MLP decoder that expands this latent vector incrementally until it reaches N*3. This tensor is reshaped into (N, 3), representing N points in 3D coordinates.
