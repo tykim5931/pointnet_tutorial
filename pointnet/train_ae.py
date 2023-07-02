@@ -53,69 +53,61 @@ def main(args):
 
     model = PointNetAutoEncoder(num_points=2048)
     model = model.to(device)
-    
-    if(args.testpath):
-        checkpoint = torch.load(args.testpath)
-        model.load_state_dict(checkpoint['model_state_dict'])
-        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-        epoch = checkpoint['epoch']
-        loss = checkpoint['loss']
 
-    else: 
-        optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
-        scheduler = torch.optim.lr_scheduler.MultiStepLR(
-            optimizer, milestones=[30, 80], gamma=0.5
+    optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
+    scheduler = torch.optim.lr_scheduler.MultiStepLR(
+        optimizer, milestones=[30, 80], gamma=0.5
+    )
+
+    # automatically save only topk checkpoints.
+    if args.save:
+        checkpoint_manager = CheckpointManager(
+            dirpath=datetime.now().strftime("checkpoints/auto_encoding/%m-%d_%H-%M-%S"),
+            metric_name="val_loss",
+            mode="min",
+            topk=2,
+            verbose=True,
         )
 
-        # automatically save only topk checkpoints.
-        if args.save:
-            checkpoint_manager = CheckpointManager(
-                dirpath=datetime.now().strftime("checkpoints/auto_encoding/%m-%d_%H-%M-%S"),
-                metric_name="val_loss",
-                mode="min",
-                topk=2,
-                verbose=True,
+    (train_ds, val_ds, test_ds), (train_dl, val_dl, test_dl) = get_data_loaders(
+        data_dir="./data", batch_size=args.batch_size, phases=["train", "val", "test"]
+    )
+
+    for epoch in range(args.epochs):
+
+        # training step
+        model.train()
+        pbar = tqdm(train_dl)
+        train_epoch_loss = []
+        for points, _ in pbar:
+            train_batch_loss, train_batch_preds = train_step(points, model, optimizer)
+            train_epoch_loss.append(train_batch_loss)
+            pbar.set_description(
+                f"{epoch+1}/{args.epochs} epoch | loss: {train_batch_loss:.4f}"
             )
 
-        (train_ds, val_ds, test_ds), (train_dl, val_dl, test_dl) = get_data_loaders(
-            data_dir="./data", batch_size=args.batch_size, phases=["train", "val", "test"]
-        )
+        train_epoch_loss = sum(train_epoch_loss) / len(train_epoch_loss)
 
-        for epoch in range(args.epochs):
+        # validataion step
+        model.eval()
+        with torch.no_grad():
+            val_epoch_loss = []
+            for points, _ in val_dl:
+                val_batch_loss, val_batch_preds = validation_step(points, model)
+                val_epoch_loss.append(val_batch_loss)
 
-            # training step
-            model.train()
-            pbar = tqdm(train_dl)
-            train_epoch_loss = []
-            for points, _ in pbar:
-                train_batch_loss, train_batch_preds = train_step(points, model, optimizer)
-                train_epoch_loss.append(train_batch_loss)
-                pbar.set_description(
-                    f"{epoch+1}/{args.epochs} epoch | loss: {train_batch_loss:.4f}"
-                )
-
-            train_epoch_loss = sum(train_epoch_loss) / len(train_epoch_loss)
-
-            # validataion step
-            model.eval()
-            with torch.no_grad():
-                val_epoch_loss = []
-                for points, _ in val_dl:
-                    val_batch_loss, val_batch_preds = validation_step(points, model)
-                    val_epoch_loss.append(val_batch_loss)
-
-                val_epoch_loss = sum(val_epoch_loss) / len(val_epoch_loss)
-                print(
-                    f"train loss: {train_epoch_loss:.4f} | val loss: {val_epoch_loss:.4f}"
-                )
-
-            if args.save:
-                checkpoint_manager.update(model, epoch, round(val_epoch_loss.item(), 4))
-
-            scheduler.step()
+            val_epoch_loss = sum(val_epoch_loss) / len(val_epoch_loss)
+            print(
+                f"train loss: {train_epoch_loss:.4f} | val loss: {val_epoch_loss:.4f}"
+            )
 
         if args.save:
-            checkpoint_manager.load_best_ckpt(model, device)
+            checkpoint_manager.update(model, epoch, round(val_epoch_loss.item(), 4))
+
+        scheduler.step()
+
+    if args.save:
+        checkpoint_manager.load_best_ckpt(model, device)
 
     model.eval()
     with torch.no_grad():
@@ -136,7 +128,6 @@ if __name__ == "__main__":
     parser.add_argument("--epochs", type=int, default=100)
     parser.add_argument("--batch_size", type=int, default=128)
     parser.add_argument("--lr", type=float, default=1e-3)
-    parser.add_argument("--testpath", type=str, default=None)
     parser.add_argument(
         "--save", action="store_true", help="Whether to save topk checkpoints or not"
     )

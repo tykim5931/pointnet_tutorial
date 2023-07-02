@@ -1,0 +1,128 @@
+==========================================
+SLURM_JOB_ID = 211984
+SLURM_NODELIST = gpu25
+==========================================
+train loss: 2.0801 train acc: 46.1% | val loss: 1.8991 val acc: 46.5%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=0-val_acc=46.52.ckpt
+train loss: 1.4236 train acc: 59.7% | val loss: 1.3259 val acc: 61.4%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=1-val_acc=61.39.ckpt
+train loss: 1.1037 train acc: 68.3% | val loss: 1.0201 val acc: 71.1%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=2-val_acc=71.11.ckpt
+train loss: 0.9022 train acc: 74.1% | val loss: 0.9993 val acc: 72.3%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=3-val_acc=72.33.ckpt
+train loss: 0.8109 train acc: 76.7% | val loss: 0.9610 val acc: 70.7%
+train loss: 0.7039 train acc: 78.9% | val loss: 0.7690 val acc: 78.8%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=5-val_acc=78.77.ckpt
+train loss: 0.6495 train acc: 80.8% | val loss: 0.7434 val acc: 78.2%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=6-val_acc=78.16.ckpt
+train loss: 0.6086 train acc: 81.5% | val loss: 0.7581 val acc: 77.9%
+train loss: 0.5680 train acc: 82.5% | val loss: 0.6133 val acc: 82.7%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=8-val_acc=82.74.ckpt
+train loss: 0.5278 train acc: 83.8% | val loss: 0.8526 val acc: 76.2%
+train loss: 0.5130 train acc: 84.0% | val loss: 0.7244 val acc: 79.3%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=10-val_acc=79.25.ckpt
+train loss: 0.4703 train acc: 85.6% | val loss: 0.6686 val acc: 81.3%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=11-val_acc=81.28.ckpt
+train loss: 0.4528 train acc: 85.5% | val loss: 0.6172 val acc: 82.7%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=12-val_acc=82.66.ckpt
+train loss: 0.4358 train acc: 86.3% | val loss: 0.5325 val acc: 84.4%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=13-val_acc=84.4.ckpt
+train loss: 0.4148 train acc: 86.9% | val loss: 0.6934 val acc: 81.1%
+train loss: 0.4158 train acc: 87.1% | val loss: 0.5884 val acc: 81.7%
+train loss: 0.4048 train acc: 87.2% | val loss: 0.6528 val acc: 82.6%
+train loss: 0.3848 train acc: 88.0% | val loss: 0.5269 val acc: 85.3%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=17-val_acc=85.33.ckpt
+train loss: 0.3683 train acc: 88.1% | val loss: 0.5442 val acc: 85.4%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=18-val_acc=85.41.ckpt
+train loss: 0.3571 train acc: 88.3% | val loss: 0.5506 val acc: 84.2%
+train loss: 0.3459 train acc: 89.0% | val loss: 0.6539 val acc: 82.6%
+train loss: 0.3452 train acc: 88.7% | val loss: 0.5694 val acc: 83.8%
+train loss: 0.3407 train acc: 88.7% | val loss: 0.7397 val acc: 80.2%
+train loss: 0.3434 train acc: 88.5% | val loss: 0.7037 val acc: 81.9%
+train loss: 0.3028 train acc: 90.0% | val loss: 0.6142 val acc: 83.8%
+train loss: 0.2875 train acc: 90.5% | val loss: 0.5401 val acc: 85.4%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=25-val_acc=85.41.ckpt
+train loss: 0.2969 train acc: 90.2% | val loss: 0.5786 val acc: 84.9%
+train loss: 0.2862 train acc: 90.4% | val loss: 0.5430 val acc: 85.6%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=27-val_acc=85.58.ckpt
+train loss: 0.2876 train acc: 90.6% | val loss: 0.5796 val acc: 84.3%
+train loss: 0.2773 train acc: 90.6% | val loss: 0.5511 val acc: 84.9%
+train loss: 0.2084 train acc: 93.0% | val loss: 0.4616 val acc: 87.2%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=30-val_acc=87.24.ckpt
+train loss: 0.1890 train acc: 93.5% | val loss: 0.4640 val acc: 87.6%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=31-val_acc=87.64.ckpt
+train loss: 0.1762 train acc: 93.9% | val loss: 0.4459 val acc: 88.6%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=32-val_acc=88.57.ckpt
+train loss: 0.1773 train acc: 93.9% | val loss: 0.5001 val acc: 87.1%
+train loss: 0.1808 train acc: 93.8% | val loss: 0.4683 val acc: 87.4%
+train loss: 0.1648 train acc: 94.3% | val loss: 0.5534 val acc: 85.6%
+train loss: 0.1681 train acc: 94.3% | val loss: 0.4729 val acc: 88.0%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=36-val_acc=88.05.ckpt
+train loss: 0.2172 train acc: 93.1% | val loss: 0.4730 val acc: 87.3%
+train loss: 0.1627 train acc: 94.4% | val loss: 0.4916 val acc: 87.2%
+train loss: 0.1500 train acc: 94.7% | val loss: 0.4558 val acc: 87.9%
+train loss: 0.1587 train acc: 94.7% | val loss: 0.5090 val acc: 87.0%
+train loss: 0.1540 train acc: 94.7% | val loss: 0.5104 val acc: 86.7%
+train loss: 0.1409 train acc: 95.3% | val loss: 0.4900 val acc: 87.6%
+train loss: 0.1449 train acc: 95.1% | val loss: 0.5053 val acc: 86.9%
+train loss: 0.1328 train acc: 95.4% | val loss: 0.4985 val acc: 88.9%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=44-val_acc=88.9.ckpt
+train loss: 0.1879 train acc: 93.9% | val loss: 0.4973 val acc: 87.4%
+train loss: 0.1511 train acc: 94.6% | val loss: 0.4746 val acc: 88.5%
+train loss: 0.1371 train acc: 95.1% | val loss: 0.5015 val acc: 88.8%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=47-val_acc=88.78.ckpt
+train loss: 0.1393 train acc: 95.0% | val loss: 0.5346 val acc: 87.2%
+train loss: 0.1299 train acc: 95.3% | val loss: 0.5179 val acc: 88.2%
+train loss: 0.1213 train acc: 95.5% | val loss: 0.5318 val acc: 87.8%
+train loss: 0.1225 train acc: 95.6% | val loss: 0.5546 val acc: 86.5%
+train loss: 0.1242 train acc: 95.7% | val loss: 0.4959 val acc: 88.0%
+train loss: 0.1227 train acc: 95.7% | val loss: 0.5318 val acc: 87.3%
+train loss: 0.1293 train acc: 95.3% | val loss: 0.5355 val acc: 87.2%
+train loss: 0.1206 train acc: 95.8% | val loss: 0.6186 val acc: 87.0%
+train loss: 0.1128 train acc: 95.9% | val loss: 0.5282 val acc: 87.7%
+train loss: 0.1248 train acc: 95.6% | val loss: 0.5295 val acc: 87.1%
+train loss: 0.1176 train acc: 95.9% | val loss: 0.5726 val acc: 86.6%
+train loss: 0.1181 train acc: 95.9% | val loss: 0.5422 val acc: 87.3%
+train loss: 0.1186 train acc: 95.9% | val loss: 0.5675 val acc: 87.4%
+train loss: 0.1218 train acc: 95.9% | val loss: 0.5442 val acc: 87.8%
+train loss: 0.1061 train acc: 96.1% | val loss: 0.5547 val acc: 87.1%
+train loss: 0.1053 train acc: 96.3% | val loss: 0.5594 val acc: 87.0%
+train loss: 0.1080 train acc: 96.2% | val loss: 0.5987 val acc: 87.0%
+train loss: 0.1150 train acc: 96.0% | val loss: 0.5685 val acc: 87.6%
+train loss: 0.1055 train acc: 96.3% | val loss: 0.5443 val acc: 87.9%
+train loss: 0.1070 train acc: 96.4% | val loss: 0.6046 val acc: 86.8%
+train loss: 0.1043 train acc: 96.4% | val loss: 0.6025 val acc: 87.2%
+train loss: 0.1091 train acc: 96.2% | val loss: 0.6095 val acc: 85.9%
+train loss: 0.1059 train acc: 96.4% | val loss: 0.5398 val acc: 88.0%
+train loss: 0.1033 train acc: 96.3% | val loss: 0.6353 val acc: 86.3%
+train loss: 0.1120 train acc: 96.2% | val loss: 0.5215 val acc: 87.6%
+train loss: 0.1030 train acc: 96.4% | val loss: 0.5721 val acc: 87.0%
+train loss: 0.0967 train acc: 96.6% | val loss: 0.5717 val acc: 86.2%
+train loss: 0.1028 train acc: 96.5% | val loss: 0.5518 val acc: 87.5%
+train loss: 0.0992 train acc: 96.5% | val loss: 0.6415 val acc: 86.3%
+train loss: 0.0938 train acc: 96.9% | val loss: 0.5737 val acc: 88.2%
+train loss: 0.0930 train acc: 96.6% | val loss: 0.5910 val acc: 87.7%
+train loss: 0.0975 train acc: 96.7% | val loss: 0.5438 val acc: 88.0%
+train loss: 0.0703 train acc: 97.5% | val loss: 0.5260 val acc: 88.4%
+train loss: 0.0600 train acc: 98.0% | val loss: 0.5884 val acc: 87.4%
+train loss: 0.0598 train acc: 97.9% | val loss: 0.5578 val acc: 88.5%
+train loss: 0.0558 train acc: 98.0% | val loss: 0.5757 val acc: 88.5%
+train loss: 0.0633 train acc: 97.8% | val loss: 0.6280 val acc: 87.7%
+train loss: 0.0599 train acc: 97.9% | val loss: 0.5810 val acc: 88.2%
+train loss: 0.0538 train acc: 98.0% | val loss: 0.5955 val acc: 87.2%
+train loss: 0.0569 train acc: 97.9% | val loss: 0.5843 val acc: 88.4%
+train loss: 0.0559 train acc: 98.0% | val loss: 0.6430 val acc: 87.2%
+train loss: 0.0555 train acc: 98.0% | val loss: 0.5765 val acc: 87.8%
+train loss: 0.0562 train acc: 98.0% | val loss: 0.5875 val acc: 88.4%
+train loss: 0.0537 train acc: 98.1% | val loss: 0.6270 val acc: 88.2%
+train loss: 0.0603 train acc: 98.0% | val loss: 0.5862 val acc: 88.2%
+train loss: 0.0504 train acc: 98.3% | val loss: 0.6138 val acc: 87.4%
+train loss: 0.0520 train acc: 98.1% | val loss: 0.6185 val acc: 89.0%
+saving checkpoint to checkpoints/classification/06-28_10-44-24/epoch=94-val_acc=88.98.ckpt
+train loss: 0.0493 train acc: 98.2% | val loss: 0.6074 val acc: 88.0%
+train loss: 0.0488 train acc: 98.3% | val loss: 0.5949 val acc: 88.4%
+train loss: 0.0520 train acc: 98.1% | val loss: 0.5978 val acc: 88.5%
+train loss: 0.0539 train acc: 98.1% | val loss: 0.6137 val acc: 88.7%
+train loss: 0.0473 train acc: 98.4% | val loss: 0.5918 val acc: 88.4%
+loaded best ckpt from checkpoints/classification/06-28_10-44-24/epoch=94-val_acc=88.98.ckpt
+test acc: 89.0%
