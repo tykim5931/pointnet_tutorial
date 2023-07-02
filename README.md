@@ -20,9 +20,9 @@ pointnet
 │   ├── misc.py             <- Point cloud normalization ft. and code to save rendered point clouds. 
 │   └── model_checkpoint.py <- Automatically save model checkpoints during training.
 │
-├── train_cls.py          <- Run classification. <TODO>
-├── train_ae.py           <- Run auto-encoding. <TODO>
-├── train_seg.py          <- Run part segmentation. <TODO>
+├── train_cls.py          <- Run classification.
+├── train_ae.py           <- Run auto-encoding.
+├── train_seg.py          <- Run part segmentation.
 ├── visualization.ipynb   <- Simple point cloud visualization example code.
 │
 ├── data                  <- Project data.
