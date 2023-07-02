@@ -43,7 +43,6 @@ On ModelNet40 test set:
 |                                 | Overall Acc |
 | ------------------------------- | ----------- |
 | Paper                           | 89.2 %      |
-| Implemented (w/o feature trans.)| - %         | 
 | Implemented (w/ feature trans.) | 89.0 %      | 
 
 
