@@ -19,13 +19,15 @@ def step(points, labels, model):
         - preds [B]
     """
     
-    # TODO : Implement step function for classification.
     out, f_trans = model(points)
     out = out.to(labels.device)
-    f_trans = f_trans.to(labels.device)
+    
+    loss_ortho = 0
+    if f_trans:
+        f_trans = f_trans.to(labels.device)
+        loss_ortho = get_orthogonal_loss(f_trans)
     
     loss_cls = F.cross_entropy(out, labels)
-    loss_ortho = get_orthogonal_loss(f_trans)
 
     loss = loss_cls + loss_ortho
     preds = torch.max(out, dim=1).indices
@@ -56,7 +58,7 @@ def main(args):
     global device
     device = "cpu" if args.gpu == -1 else f"cuda:{args.gpu}"
 
-    model = PointNetCls(num_classes=40, input_transform=True, feature_transform=True)
+    model = PointNetCls(num_classes=40, input_transform=True, feature_transform=False)
     model = model.to(device)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
