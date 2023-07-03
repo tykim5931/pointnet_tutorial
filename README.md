@@ -49,10 +49,11 @@ pointnet
 ![image](Figure/cls.png)
 On ModelNet40 test set:
 
-|                                 | Overall Acc |
-| ------------------------------- | ----------- |
-| Paper                           | 89.2 %      |
-| Implemented (w/ feature trans.) | 89.0 %      | 
+|                                  | Overall Acc |
+| -------------------------------- | ----------- |
+| Paper                            | 89.2 %      |
+| Implemented (w/o feature trans.) | 89.4 %      | 
+| Implemented (w/ feature trans.)  | 89.0 %      | 
 
 
 ## Task 2. Point Cloud Part Segmentation
